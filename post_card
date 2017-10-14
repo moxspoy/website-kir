@@ -1,0 +1,55 @@
+<!--Post Card-->
+        <!-- Show just premium post with slider -->
+        <center>
+		<div class="container" style="margin-bottom: 30px">
+        <?php
+            if($post_id % 3 == 1 || $post_id == 1){
+                echo "<center><div class='row'>"; 
+            }
+
+			foreach ($detailpost as $row){
+                if($row->status == 2){
+					echo   "<div class='col-md-4'> 
+							   <div class='single-blog-item'>
+                                        <a href='".site_url("home/detail_content/$row->id")."'>
+										<div class='blog-thumnail'>
+											<img class='img-fluid' style='max-height:200px;size:cover/center' src='".$row->foto."' alt='Card image cap'>
+										</div>
+										<div class='blog-content'>
+											<h4 class='card-title' style='margin-left:10px;margin-top:5px'>".$row->namabrg."</h4>
+											<p class='card-text' style='margin-left:10px'>".$row->deskripsi."</p>
+											<p class='card-text' style='margin-left:10px'>Lokasi: ".$row->lokasi."</p>
+                                            <p class='card-text' style='margin-left:10px'>Harga per jam: ".$row->harga."</p>
+										</div> </a>";
+                                        
+										
+										if($row->type == 1){
+											echo "<a href=''><span class='blog-date' style='margin-top:40px;'>Premium</span></a>";
+										}
+										
+										if(isset($_SESSION['username']) && $row->status == 2){
+											echo "<button data-toggle=modal data-target=#chat class='btn btn-primary'>Contact</button>";
+										}
+
+                                        if(isset($_SESSION['id']) && $row->pengepost == $_SESSION['id'] && $row->status == 2){
+                                            echo "<button data-toggle=modal href='javascript:void(0);' class='btn btn-primary'>Konfirmasi</button>";
+                                            //echo anchor('Home/konfirmasi/'.$row->id,'<button class="btn btn-primary">Konfirmasi</button>');
+                                        }
+										if(isset($_SESSION['username']) && $row->status == 2){
+											echo "<button data-toggle=modal href='javascript:void(0);' onclick='getId(".$row->id.");' data-target=#reportModal class='btn btn-danger'>!</button>";
+										}
+
+
+                                        $post_id++;
+								echo"</div>
+							</div>";
+                    }
+                            
+			}
+
+			if($post_id % 3 == 1 || $post_id == 1){
+					echo "</div></center>";
+			}
+        ?>
+		</div>
+        </center>
