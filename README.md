@@ -7,9 +7,11 @@ Kontak Kami
 --------
 Email
 --------
-admin@tempatqu.com
-mnurilmanbaehaqi@gmail.com
+admin@tempatqu.com | mnurilmanbaehaqi@gmail.com
 
+Situs Web
+--------
+http://tempatqu.com
 Alamat
 --------
 Jalan Sunan Giri No 1, Rawamangun, Jakarta
