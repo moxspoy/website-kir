@@ -91,8 +91,8 @@
                         <p>Hai ! Silahkan transfer uang Rp 20.000 ke rekening kami <br>
                             1. Bank BNI dengan nomor rekening <strong>04008 70912</strong> a.n M Nurilman Baehaqi <br>
                             Setelah itu, kirim bukti transaksimu ke nomor 085920039600 (Whatsapp) dengan menyertakan kode unik kiriman anda<br>
-                            yaitu <strong>TQ-00
-                                <?php echo $id_post; ?>
+                            yaitu <strong>TQ-12
+                                <?php echo $row->id; ?>
                             </strong></p>
                     </div>
                 </div>

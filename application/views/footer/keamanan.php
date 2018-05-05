@@ -145,11 +145,11 @@
     <section style="margin: 0 auto 10% auto;border-style: solid; border-width: 1px; border-color: #68C3A3 ">
     	<h4 class="narrow text-justify" style="padding: 5%">
     		<ol>
-    			<li>Ketika ingin mengakses www.tempatqu.com, periksa boks alamat (address bar). Pastikan alamat yang Anda akses menggunakan domain tempatqu.com dan diawali https://, seperti  https://www.tempatqu.com.  Jika situs yang Anda akses menyerupai halaman tempatqu namun memiliki alamat berbeda, segera tutup halaman tersebut. <br>
+    			<li>Ketika ingin mengakses www.mentoring.com, periksa boks alamat (address bar). Pastikan alamat yang Anda akses menggunakan domain mentoring.com dan diawali https://, seperti  https://www.mentoring.com.  Jika situs yang Anda akses menyerupai halaman mentoring namun memiliki alamat berbeda, segera tutup halaman tersebut. <br>
     			</li>
-    			<li>Sistem tempatqu hanya meminta para pengguna untuk memasukkan nama akun dan kata sandi (username and password) ketika login, membuat iklan, dan melihat kontak. Selain ketiga aktivitas tersebut, Anda bisa menggunakan segala fitur tempatqu tanpa memerlukan username dan password. <br>
+    			<li>Sistem mentoring hanya meminta para pengguna untuk memasukkan nama akun dan kata sandi (username and password) ketika login, membuat iklan, dan melihat kontak. Selain ketiga aktivitas tersebut, Anda bisa menggunakan segala fitur mentoring tanpa memerlukan username dan password. <br>
     			</li>
-    			<li>Administrator tempatqu tidak pernah meminta data pribadi, nama akun (username) beserta kata sandi (password) melalui surel (e-mail) ataupun pesan pribadi (PM/private message). <br>
+    			<li>Administrator mentoring tidak pernah meminta data pribadi, nama akun (username) beserta kata sandi (password) melalui surel (e-mail) ataupun pesan pribadi (PM/private message). <br>
     			</li>
     			<li>Seluruh info tentang acara atau promosi resmi dari tempatqu akan dipublikasikan melalui media resmi tempatqu, seperti blog, media sosial (akun resmi Facebook, Twitter, dan Google+), dan rilis pers. Jangan mudah tergiur dengan tawaran atau hadiah apa pun dari pihak lain yang mengatasnamakan tempatqu. Apabila Anda tidak dapat menemukan informasi mengenai tawaran tersebut di media resmi tempatqu, mohon abaikan. <br>
     			</li>

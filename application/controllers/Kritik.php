@@ -5,18 +5,24 @@ class Kritik extends CI_Controller {
         parent ::__construct();
         $this->load->model('home_model');
     }
+
+    function index() {
+        $data['judul'] = 'Kirim Kritik di Tempatqu.com';
+        $this->load->view('header');
+        $this->load->view('navbar');
+        $this->load->view('kritik', $data);
+        $this->load->view('footer');
+    }
  
     function kirim_kritik()
     {
         $data=array(
-            'nama'      => $this->input->post('nama'),
-            'email'         => $this->input->post('email'),
+            'id_mentee'      => $_SESSION['id'],
             'judul'      => $this->input->post('judul'),
-            'isi'          => $this->input->post('isi'),
+            'isi_kritik'          => $this->input->post('isi'),
             );
         $this->db->insert('kritik', $data);
-        $this->load->view('footer/tentang', $this->alertKritik("Kritik anda berhasil disampaikan :)"));
-    }
+        redirect('home/jadwal');
 
     function alertKritik($msg) {
         echo "<script type='text/javascript'>alert('$msg');";
@@ -28,9 +34,11 @@ class Kritik extends CI_Controller {
         $data['judul'] = 'Daftar Kritik di Tempatqu.com';
         $data['post_id'] = 1;
         $data['daftar_kritik'] = $this->home_model->daftar_kritik();
+        $this->home_model->alert("Berhasil dikirim");
         $this->load->view('header');
         $this->load->view('navbar');
         $this->load->view('kritik_view', $data);
         $this->load->view('footer');
     }
+}
 }

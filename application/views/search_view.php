@@ -10,13 +10,12 @@
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs tabs-2 light-blue" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#loginpanel" role="tab"><i class="fa fa-user mr-1"></i> Login</a>
+                            <a class="nav-link active" data-toggle="tab" href="#loginpanel" role="tab"><i class="fa fa-user mr-1"></i> Masuk</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#registerpanel" role="tab"><i class="fa fa-user-plus mr-1"></i> Register</a>
+                            <a class="nav-link" data-toggle="tab" href="#registerpanel" role="tab"><i class="fa fa-user-plus mr-1"></i> Mendaftar</a>
                         </li>
                     </ul>
-
                     <!-- Tab panels -->
                 
                     <div class="tab-content">
@@ -42,7 +41,6 @@
                                         <button class="btn btn-info" name="submit" type="submit" value="login">Log in <i class="fa fa-sign-in ml-1"></i></button>
                                     </div>
                                 </div>
-                                
                             </form>
                           
                             <!--Footer-->
@@ -58,8 +56,6 @@
 
                         <!--Panel 8-->
                         <div class="tab-pane fade" id="registerpanel" role="tabpanel">
-
-
                             <!--Body-->
                             <form method="post" action="<?php echo site_url("home/register") ?>">
                                 <div class="modal-body">
@@ -102,7 +98,6 @@
                                     <div class="text-center form-sm mt-2">
                                         <div id="RecaptchaField2"></div></div> <span><button class="btn btn-info" name="button" type="submit" value="register">Sign up <i class="fa fa-sign-in ml-1"></i></button> </span>
                                     </div>
-
                                 </div>
                             </form>
                             
@@ -116,135 +111,92 @@
                         </div>
                         <!--/.Panel 8-->
                     </div>
-
                 </div>
             </div>
             <!--/.Content-->
         </div>
     </div>
-<!--/Modal: Login / Register Form-->
 
-<!-- Main Container -->
-<div class="container">
-<section class="section pb-5">
-
-    <!--Section heading-->
-    <center>
-    <h2 class="section-heading h1 pt-4 title">TENTANG KAMI</h2>
-    </center>
-    <!--Section description-->
-    <p class="section-description pb-4">Didirikan pada September 2017 dan berbasis di Universitas Negeri Jakarta – Indonesia, Mentoring.com adalah media untuk optimalisasi dakwah Islam melalui aktivitas mentoring. Terdapat beberapa fitur yang ada dalam aplikasi ini sebagai upaya mengatasi permasalahan yang ada dalam aktivitas mentoring</p>
-    
-
-    <div class="row">
-
-        <!--Grid column-->
-        <div class="col-lg-5 mb-4">
-
-            <!--Form with header-->
-            <div class="card">
-
-                <div class="card-body" style="margin-left: 20px">
-                    <!--Header-->
-                    <div class="form-header blue accent-1">
-                        <h3><i class="fa fa-envelope"></i> Write to us:</h3>
+    <!--Main Container-->
+    <div class="container" style="margin-top: 100px;">
+        <div style="margin: 0 auto">
+            <!--Search-->
+            <form action="<?php echo site_url("home/search") ?>" method="get" style="margin: 0 auto">
+                <div class="row">
+                    <div class="col col-md-4">
+                        <input type="search" class="form-control" name="search" placeholder="Cari murabbi" style="padding-top: 20px; margin: 0 auto" >
                     </div>
-
-                    <p>Kritik anda adalah kemajuan kami.</p>
-                    <br>
-
-                    <form method="post" action="<?php echo site_url('kritik/kirim_kritik')?>">
-                    	<!--Body-->
-	                    <div class="md-form">
-	                        <i class="fa fa-user prefix grey-text"></i>
-	                        <input type="text" id="form-name" class="form-control" name="nama">
-	                        <label for="form-name">Nama</label>
-	                    </div>
-
-	                    <div class="md-form">
-	                        <i class="fa fa-envelope prefix grey-text"></i>
-	                        <input type="text" id="form-email" class="form-control" name="email">
-	                        <label for="form-email">Email</label>
-	                    </div>
-
-	                    <div class="md-form">
-	                        <i class="fa fa-tag prefix grey-text"></i>
-	                        <input type="text" id="form-Subject" class="form-control" name="judul">
-	                        <label for="form-Subject">Judul Kritik</label>
-	                    </div>
-
-	                    <div class="md-form">
-	                        <i class="fa fa-pencil prefix grey-text"></i>
-	                        <textarea type="text" id="form-text" class="md-textarea" name="isi"></textarea>
-	                        <label for="form-text">Kritik Anda</label>
-	                    </div>
-
-	                    <div class="text-center">
-	                        <button class="btn btn-pink">Submit</button>
-	                    </div>
-                    </form>
-
+                    <div class="col col-md-4">
+                        <div class="form-group" style="width: 100%; margin: 20px auto auto auto; " style="padding-top: 20px">
+                            <button class="btn btn-primary type="submit" ><i class='fa fa-search'></i></button>
+                        </div>
+                    </div>
                 </div>
-
-            </div>
-            <!--Form with header-->
-
+            </form>
         </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-7">
-
-            <!--Google map-->
-            <div id="map" class="z-depth-1-half map-container" style="height: 400px"></div>
-
-            <br>
-            <!--Buttons-->
-            <div class="row text-center">
-                <div class="col-md-4">
-                    <a class="btn-floating"><i class="fa fa-map-marker"></i></a>
-                    <p>Jalan Sunan Giri No 1, Rawamangun, Jakarta</p>
-                    <p>Indonesia</p>
-                </div>
-
-                <div class="col-md-4">
-                    <a class="btn-floating "><i class="fa fa-phone"></i></a>
-                    <p>+ 62 859 2003 9600</p>
-                    <p>Senin - Jumat, 8:00-22:00 WIB</p>
-                </div>
-
-                <div class="col-md-4">
-                    <a class="btn-floating "><i class="fa fa-envelope"></i></a>
-                    <p>admin@mentoring.com</p>
-                    <p>mnurilmanbaehaqi@gmail.com</p>
-                </div>
+        <div>
+            <div>
+            <?php
+                echo "<div class='row'>"; 
+                foreach ($search as $row){
+                    
+                        echo   "<div class='col-md-3'> 
+                                   <div class='single-blog-item' style='height: 380px !important'>
+                                            <a href='".site_url("home/detail_content/$row->id")."'>
+                                            <div class='blog-thumnail'>
+                                                <img class='img-fluid' style='max-height:200px;size:cover/center' src=".$row->foto." alt='Card image cap'>
+                                            </div>
+                                            <div class='blog-content'>
+                                                <h4 class='card-title' style='margin-left:10px;margin-top:5px'>".$row->nama."</h4>
+                                                <p class='card-text' style='margin-left:10px'>Program Studi: ".$row->prodi."</p>
+                                                <p class='card-text' style='margin-left:10px'>Fakultas: ".$row->fakultas."</p>
+                                                <p class='card-text' style='margin-left:10px'>Nomor Hp: ".$row->no_hp."</p>
+                                            </div> </a>";
+                                            foreach ($mentor as $row2) {
+                                                
+                                                if ($row2->jml_mentee <10) {
+                                                    echo "<button class='btn btn-primary'>Tersedia</button>";
+                                                }
+                                            }
+                                            $post_id++;
+                                    echo"</div>
+                                </div>";                                
+                }
+                        echo "</div>";
+            ?>
             </div>
-
         </div>
-       <!--Grid column-->
-
     </div>
+         <!--Action-->
 
-</section>
-<!--Section: Contact v.1-->
-</div>
-<script type="text/javascript">
-	
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -6.194934, lng: 106.884058},
-          zoom: 15
-        });
-      }
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBugy3-Oigx17YzfthVMJwyLRGVPbKF5g&callback=initMap"
-    async defer></script>
-    <!-- Buat Captcha -->
-<script type="text/javascript">
+    <script type="text/javascript">
+        var url="<?php echo base_url();?>";
+      
+        function konfirmasi(){
+            window.location.href = url+"Home/konfirmasi/"+localStorage.getItem('post_id');
+        }
+
+        function report(){
+            window.location.href = url+"Home/report/"+localStorage.getItem('post_id');
+        }
+
+        function getId(id){
+           localStorage.setItem('post_id',id);
+        }
+
+        function setIsPremiumRequestedToOne() {
+            window.location.href = url+"Home/setIsPremiumRequestedToOne/"+localStorage.getItem('post_id');
+        }
+        
         var CaptchaCallback = function() {
             grecaptcha.render('RecaptchaField1', {'sitekey' : '6LeegzQUAAAAAHHpsMGJBT4c7SopKvJ4GxNpoAPt'});
             grecaptcha.render('RecaptchaField2', {'sitekey' : '6LeegzQUAAAAAHHpsMGJBT4c7SopKvJ4GxNpoAPt'});
         };
 
-</script>  
+    </script>                                                     
+                                                                                               
+
+    
+    
+
+    

@@ -10,13 +10,12 @@
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs tabs-2 light-blue" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#loginpanel" role="tab"><i class="fa fa-user mr-1"></i> Login</a>
+                            <a class="nav-link active" data-toggle="tab" href="#loginpanel" role="tab"><i class="fa fa-user mr-1"></i> Masuk</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#registerpanel" role="tab"><i class="fa fa-user-plus mr-1"></i> Register</a>
+                            <a class="nav-link" data-toggle="tab" href="#registerpanel" role="tab"><i class="fa fa-user-plus mr-1"></i> Mendaftar</a>
                         </li>
                     </ul>
-
                     <!-- Tab panels -->
                 
                     <div class="tab-content">
@@ -42,7 +41,6 @@
                                         <button class="btn btn-info" name="submit" type="submit" value="login">Log in <i class="fa fa-sign-in ml-1"></i></button>
                                     </div>
                                 </div>
-                                
                             </form>
                           
                             <!--Footer-->
@@ -58,8 +56,6 @@
 
                         <!--Panel 8-->
                         <div class="tab-pane fade" id="registerpanel" role="tabpanel">
-
-
                             <!--Body-->
                             <form method="post" action="<?php echo site_url("home/register") ?>">
                                 <div class="modal-body">
@@ -102,7 +98,6 @@
                                     <div class="text-center form-sm mt-2">
                                         <div id="RecaptchaField2"></div></div> <span><button class="btn btn-info" name="button" type="submit" value="register">Sign up <i class="fa fa-sign-in ml-1"></i></button> </span>
                                     </div>
-
                                 </div>
                             </form>
                             
@@ -116,135 +111,91 @@
                         </div>
                         <!--/.Panel 8-->
                     </div>
-
                 </div>
             </div>
             <!--/.Content-->
         </div>
     </div>
-<!--/Modal: Login / Register Form-->
 
-<!-- Main Container -->
-<div class="container">
-<section class="section pb-5">
+    <!--Main Container-->
+    <div class="container" style="margin-top: 100px;">
 
-    <!--Section heading-->
-    <center>
-    <h2 class="section-heading h1 pt-4 title">TENTANG KAMI</h2>
-    </center>
-    <!--Section description-->
-    <p class="section-description pb-4">Didirikan pada September 2017 dan berbasis di Universitas Negeri Jakarta – Indonesia, Mentoring.com adalah media untuk optimalisasi dakwah Islam melalui aktivitas mentoring. Terdapat beberapa fitur yang ada dalam aplikasi ini sebagai upaya mengatasi permasalahan yang ada dalam aktivitas mentoring</p>
-    
-
-    <div class="row">
-
-        <!--Grid column-->
-        <div class="col-lg-5 mb-4">
-
-            <!--Form with header-->
-            <div class="card">
-
-                <div class="card-body" style="margin-left: 20px">
-                    <!--Header-->
-                    <div class="form-header blue accent-1">
-                        <h3><i class="fa fa-envelope"></i> Write to us:</h3>
-                    </div>
-
-                    <p>Kritik anda adalah kemajuan kami.</p>
-                    <br>
-
-                    <form method="post" action="<?php echo site_url('kritik/kirim_kritik')?>">
-                    	<!--Body-->
-	                    <div class="md-form">
-	                        <i class="fa fa-user prefix grey-text"></i>
-	                        <input type="text" id="form-name" class="form-control" name="nama">
-	                        <label for="form-name">Nama</label>
-	                    </div>
-
-	                    <div class="md-form">
-	                        <i class="fa fa-envelope prefix grey-text"></i>
-	                        <input type="text" id="form-email" class="form-control" name="email">
-	                        <label for="form-email">Email</label>
-	                    </div>
-
-	                    <div class="md-form">
-	                        <i class="fa fa-tag prefix grey-text"></i>
-	                        <input type="text" id="form-Subject" class="form-control" name="judul">
-	                        <label for="form-Subject">Judul Kritik</label>
-	                    </div>
-
-	                    <div class="md-form">
-	                        <i class="fa fa-pencil prefix grey-text"></i>
-	                        <textarea type="text" id="form-text" class="md-textarea" name="isi"></textarea>
-	                        <label for="form-text">Kritik Anda</label>
-	                    </div>
-
-	                    <div class="text-center">
-	                        <button class="btn btn-pink">Submit</button>
-	                    </div>
-                    </form>
-
-                </div>
-
-            </div>
-            <!--Form with header-->
-
+        <!-- Brand Tempatqu -->
+        <div class="text-center">
+            <h1>DOWNLOAD MATERI MENTORING</h1>
         </div>
-        <!--Grid column-->
+        <!-- End of Brand -->
 
-        <!--Grid column-->
-        <div class="col-lg-7">
 
-            <!--Google map-->
-            <div id="map" class="z-depth-1-half map-container" style="height: 400px"></div>
+        <!-- Premium Post Request -->
+        <br/>
+        <br/>
+        <br/>
+         
+            <!--Table-->
+            <div class="table-wrapper-2" style="margin-left: 20%">
+            <table class="table table-responsive">
 
-            <br>
-            <!--Buttons-->
-            <div class="row text-center">
-                <div class="col-md-4">
-                    <a class="btn-floating"><i class="fa fa-map-marker"></i></a>
-                    <p>Jalan Sunan Giri No 1, Rawamangun, Jakarta</p>
-                    <p>Indonesia</p>
-                </div>
+                <!--Table head-->
+                <thead class="mdb-color darken-3">
+                    <tr class="text-white">
+                            <!-- <th>Id</th> -->
+                            <th>Pertemuan</th>
+                            <th>Judul Materi</th>
+                            <th>File</th>
+                            <th>Updated</th>
+                    </tr>
+                </thead>
+                <!--Table head-->
 
-                <div class="col-md-4">
-                    <a class="btn-floating "><i class="fa fa-phone"></i></a>
-                    <p>+ 62 859 2003 9600</p>
-                    <p>Senin - Jumat, 8:00-22:00 WIB</p>
-                </div>
-
-                <div class="col-md-4">
-                    <a class="btn-floating "><i class="fa fa-envelope"></i></a>
-                    <p>admin@mentoring.com</p>
-                    <p>mnurilmanbaehaqi@gmail.com</p>
-                </div>
-            </div>
-
-        </div>
-       <!--Grid column-->
-
+                <!--Table body-->
+                <tbody>
+                    
+                        <?php
+                        foreach ($materi as $row){
+                echo "<tr>
+                            <td>".$row->id."</td>
+                            <td>".$row->judul."</td>
+                            <td><a href=".$row->file."><i class='fa fa-download' aria-hidden='true'></i></td>
+                            <td>".$row->updated."</td></tr>" ;
+                        }
+                            ?>  
+                </tbody>
+                <!--Table body-->
+            </table>
+            <!--Table-->
+        </div>                
     </div>
+    <hr>
+        
 
-</section>
-<!--Section: Contact v.1-->
-</div>
-<script type="text/javascript">
-	
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -6.194934, lng: 106.884058},
-          zoom: 15
-        });
-      }
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBugy3-Oigx17YzfthVMJwyLRGVPbKF5g&callback=initMap"
-    async defer></script>
-    <!-- Buat Captcha -->
-<script type="text/javascript">
+    <script type="text/javascript">
+        var url="<?php echo base_url();?>";
+      
+        function konfirmasi(){
+            window.location.href = url+"Home/konfirmasi/"+localStorage.getItem('post_id');
+        }
+
+        function report(){
+            window.location.href = url+"Home/report/"+localStorage.getItem('post_id');
+        }
+
+        function getId(id){
+           localStorage.setItem('post_id',id);
+        }
+
+        function setIsPremiumRequestedToOne() {
+            window.location.href = url+"Home/setIsPremiumRequestedToOne/"+localStorage.getItem('post_id');
+        }
+        
         var CaptchaCallback = function() {
             grecaptcha.render('RecaptchaField1', {'sitekey' : '6LeegzQUAAAAAHHpsMGJBT4c7SopKvJ4GxNpoAPt'});
             grecaptcha.render('RecaptchaField2', {'sitekey' : '6LeegzQUAAAAAHHpsMGJBT4c7SopKvJ4GxNpoAPt'});
         };
 
-</script>  
+    </script>                                                     
+                                                                                               
+
+    
+    
+

@@ -1,7 +1,7 @@
 
     <!--Footer-->
     <div>
-        <footer class="page-footer blue center-on-small-only" >
+        <footer class="page-footer green center-on-small-only" >
 
             <!--Footer Links-->
             <div class="container-fluid">
@@ -18,7 +18,7 @@
                 <!--/.First column-->
                 <!--First column-->
                 <div class="col-md-2">
-                    <h5 class="title">tempatqu.com</h5>
+                    <h5 class="title">Mentoring.com</h5>
                     <ul>
                         <li><a href="<?php  echo site_url('footer/tentang') ?>"><i class="fa fa-child" style="margin-right: 8px"></i>Tentang Kami</a></li>
                         <li><a href="<?php  echo site_url('footer/karir') ?>"><i class="fa fa-external-link-square" style="margin-right: 8px"></i>Karir</a></li>
@@ -56,7 +56,8 @@
             <!--Copyright-->
         <div class="footer-copyright">
             <div class="container-fluid" style="margin-top: 10px ; margin-bottom: 10px">
-               <p style="font-size: 15px">Copyrights tempatqu.com. 2017. All Right Reserved<p>
+               <p style="font-size: 15px">Copyrights Mentoring.com. 2017. All Right Reserved<p>
+                <p id="demo"></p>
             </div>
         </div>
         <!--/.Copyright-->
@@ -69,6 +70,19 @@
     <script type="text/javascript" src="<?php echo base_url('assets/js/tether.min.js')?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets/js/bootstrap.min.js')?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets/js/mdb.min.js')?>"></script>
+    <script type="text/javascript">
+        $('#demo').pagination({
+                        dataSource: [1, 2, 3, 4, 5, 6, 7, ... , 40],
+                        pageSize: 5,
+                        showGoInput: true,
+                        showGoButton: true,
+                        callback: function(data, pagination) {
+                            // template method of yourself
+                            var html = template(data);
+                            dataContainer.html(html);
+                        }
+                    })
+    </script>
 
 </body>
 </html> 

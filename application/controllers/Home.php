@@ -7,29 +7,16 @@ class Home extends CI_Controller{
     {
         parent ::__construct();
         $this->load->model('home_model');
+        $this->load->library("pagination");
     }
  
     function index()
     {
-        $data['judul'] = 'Tempatqu | Best place to find the place you need';
-        $data['post_id'] = 1;
+        $data['judul'] = 'MentorRing.com | Lesatkan Ajaran Islam Lewat Mentoring';
         $data['post'] = $this->home_model->get_post();
         $this->load->view('header');
         $this->load->view('navbar');
-        if(isset($_SESSION['username']) && $_SESSION['username'] == "admin") {
-            $data['reportedPost'] = $this->home_model->get_reportedPost();
-            $data['premiumRequestPost'] = $this->home_model->get_premiumRequestPost();
-            $this->load->view('home_view_admin', $data);
-        } else {
-            if(isset($_GET['search'])) {
-                $data['postPremiumOnly'] = $this->home_model->get_premiumPostOnly();
-                $data['post'] = $this->home_model->get_post();
-            } else {
-                $data['postPremiumOnly'] = $this->home_model->get_premiumPostOnly();
-                $data['lastSixPost'] = $this->home_model->get_lastSixPost();
-                $this->load->view('home_view', $data);
-            }
-        }
+        $this->load->view('home_view', $data);
         $this->load->view('footer');
     }
  
@@ -84,26 +71,24 @@ class Home extends CI_Controller{
                 $this->form_validation->set_rules('password', 'Password', 'required');
 
                 if($this->form_validation->run()) {
-                    $sql = "select * from users where username = ? and password = ?";
+                    $sql = "select * from mentee where username = ? and password = ?";
                     $query = $this->db->query($sql, array($this->input->post('username'), md5($this->input->post('password'))));
                     if($query->num_rows()==0) {
                         // user not found
                          $this->load->view('home_view', $this->home_model->alert("Username/Password tidak ditemukan"));
-
-                    } else if ($this->input->post('username') == "admin"){
-                        $this->session->set_userdata('username', $this->input->post('username'));
-                        $this->session->set_userdata('id', $row->id);
-                        redirect ('home');
 
                     } else {
                         $row = $query->row();
                         $this->session->set_userdata('id', $row->id);
                         $this->session->set_userdata('username', $row->username);
                         $this->session->set_userdata('nama', $row->nama);
-                        $this->session->set_userdata('alamat', $row->alamat);
-                        $this->session->set_userdata('telp', $row->telp);
                         $this->session->set_userdata('password', $row->password);
-                        redirect('Home');
+                        $data['judul'] = 'MentorRing.com | Lesatkan Ajaran Islam Lewat Mentoring';
+                        $data['post'] = $this->home_model->get_post();
+                        $this->load->view('header');
+                        $this->load->view('navbar');
+                        $this->load->view('mentee_view', $data);
+                        $this->load->view('footer');
                     }
                 } else {
                     if($this->input->post('username') == "" || $this->input->post('password') == ""){
@@ -121,17 +106,23 @@ class Home extends CI_Controller{
 
     function logout()
     {   
-        if( $this->session->has_userdata('username')){
+        if( $this->session->has_userdata('nrm') ){
+            unset(
+                $_SESSION['id'],
+                $_SESSION['nrm'],
+                $_SESSION['nama'],
+                $_SESSION['password']
+            );
+            $this->session->sess_destroy();
+       } else if ( $this->session->has_userdata('username') ){
             unset(
                 $_SESSION['id'],
                 $_SESSION['username'],
                 $_SESSION['nama'],
-                $_SESSION['alamat'],
-                $_SESSION['telp'],
                 $_SESSION['password']
             );
             $this->session->sess_destroy();
-       }
+        }
        redirect('Home');
     }
 
@@ -145,61 +136,70 @@ class Home extends CI_Controller{
          if($_FILES['dokumen']['name']){
             if ($this->upload->do_upload('dokumen')){
                 $data = array(
-                    'kategori'  =>  $this->input->post('kategori'),
-                    'type'      =>  2,
-                    'namabrg'   =>  $this->input->post('namabarang'),
-                    'lokasi'    =>  $this->input->post('lokasi'),
-                    'waktu'     =>  $this->input->post('waktu'),
-                    'deskripsi' =>  $this->input->post('deskripsi'),
-                    'harga' =>  $this->input->post('harga'),
+                    'nama'  =>  $this->input->post('nama'),
+                    'nrm'      =>  $this->input->post('nrm'),
+                    'prodi'   =>  $this->input->post('prodi'),
+                    'fakultas'    =>  $this->input->post('fakultas'),
+                    'kota_asal'     =>  $this->input->post('kota_asal'),
                     'foto'      =>  base_url("uploads/").$this->upload->file_name,
-                    'pengepost' =>  $this->session->userdata('id'),
-					'status' 	=> 	2
+                    'password'      => md5($this->input->post('password')),
+                    'no_hp' => $this->input->post('no_hp'),
+                    'jenis_kelamin' =>  $this->input->post('jenis_kelamin'),
+                    'email'         => $this->input->post('email'),
                 );
- 
+
                 $this->home_model->post($data);
-                redirect('Home');
+                $sql = "select * from mentor";
+                $query = $this->db->query($sql);
+                $row = $query->row();
+                        $this->session->set_userdata('id', $row->id);
+                        $this->session->set_userdata('nama', $row->nama);
+                        $this->session->set_userdata('nrm', $row->nrm);
+                        $this->session->set_userdata('no_hp', $row->no_hp);
+                        $this->session->set_userdata('password', $row->password);
+                        $this->home_model->alert("Anda Sukses Mendaftar, anda akan menerima email berisi username dan password jika sudah terverivikasi");
+                        redirect('home');
             }else{
                  $this->home_model->alert("Post gagal dilakukan, ulangi kembali");
-                 redirect('Home');
+                 redirect('daftar_mentor');
+
+            }
+        }
+    }
+
+    function upload_materi(){   
+
+        $nmfile = $this->input->post('judul'); 
+        $config['upload_path'] = './uploads/materi/';
+        $config['allowed_types'] = 'doc|ppt|pdf|docx|xlsx|txt|xls';
+        $config['file_name'] = $nmfile;
+        $this->load->library('upload', $config);
+
+         if($_FILES['materi']['name']){
+            if ($this->upload->do_upload('materi')){
+                $data = array(
+                    'judul'  =>  $this->input->post('judul'),
+                    'file'      =>  base_url("uploads/materi/").$this->upload->file_name,
+                    'updated'      => date("Y-n-j")
+                    
+                );
+                $this->db->insert('materi', $data);
+                redirect('home_mentor');
+            }else{
+                 $this->home_model->alert("Post gagal dilakukan, ulangi kembali");
+                 redirect('daftar_mentor');
+
             }
         }
     }
 
     function search(){
-        // $data['post_id'] = 1;
-        // $data['post'] = $this->home_model->get_post();
-        // $this->load->view('header');
-        // $this->load->view('navbar');
-        // $this->load->view('home_view', $data);
-        // $this->load->view('footer');
-        
-        // $jumlah_data = $this->home_model->jumlah_data();
-        // $config['base_url'] = base_url().'home/search/';
-        // $config['total_rows'] = $jumlah_data;
-        // $config['per_page'] = 3;
-
-        $data['judul'] = 'Tempatqu | Best place to find the place you need';
-        $data['post_id'] = 1;
-        $data['post'] = $this->home_model->get_post();
         $this->load->view('header');
         $this->load->view('navbar');
-        if(isset($_SESSION['username']) && $_SESSION['username'] == "admin") {
-            $data['reportedPost'] = $this->home_model->get_reportedPost();
-            $data['premiumRequestPost'] = $this->home_model->get_premiumRequestPost();
-            $this->load->view('home_view_admin', $data);
-        } else {
-            if(isset($_GET['search'])) {
-                $data['postPremiumOnly'] = $this->home_model->get_premiumPostOnly();
-                $data['lastPostInSearch'] = $this->home_model->get_lastPostInSearch();
-                //$this->pagination->initialize($config); 
-                $this->load->view('home_view', $data);
-            } else {
-                $data['postPremiumOnly'] = $this->home_model->get_premiumPostOnly();
-                $data['lastSixPost'] = $this->home_model->get_lastSixPost();
-                $this->load->view('home_view', $data);
-            }
-        }
+        $data['post_id'] = 1;
+        $data['search'] = $this->home_model->get_search();
+        $data['mentor'] = $this->home_model->getDataMentoring();
+        $this->load->view('search_view', $data);
         $this->load->view('footer');
     }
 
@@ -336,6 +336,79 @@ class Home extends CI_Controller{
                     redirect('home/editIklan/'.$id);
 
             }
+    }
+
+    function materi() {
+        $data['judul'] = 'MentorRing.com | Lesatkan Ajaran Islam Lewat Mentoring';
+        $data['materi'] = $this->home_model->get_materi();
+        $this->load->view('header');
+        $this->load->view('navbar');
+        $this->load->view('materi', $data);
+        $this->load->view('footer');
+    }
+    function jadwal() {
+        $data['judul'] = 'MentorRing.com | Lesatkan Ajaran Islam Lewat Mentoring';
+                        $data['post'] = $this->home_model->get_post();
+                        $this->load->view('header');
+                        $this->load->view('navbar');
+                        $this->load->view('mentee_view', $data);
+                        $this->load->view('footer');
+    }
+    function mutabaah() {
+        $data['judul'] = 'MentorRing.com | Lesatkan Ajaran Islam Lewat Mentoring';
+        $data['materi'] = $this->home_model->get_materi();
+        $this->load->view('header');
+        $this->load->view('navbar');
+        $this->load->view('mutabaah_view', $data);
+        $this->load->view('footer');
+    }
+
+    function simpan_mutabaah() {
+        $data=array(
+            'id_mentee' => $_SESSION['id'],
+            'dhuhur'      => $this->input->post('dhuhur'),
+            'ashar'         => $this->input->post('ashar'),
+            'maghrib'      => $this->input->post('maghrib'),
+            'isya'          => $this->input->post('isya'),
+            'shubuh'          => $this->input->post('shubuh'),
+            'tahajud'          => $this->input->post('tahajud'),
+            'sedekah'          => $this->input->post('sedekah'),
+            'tilawah'          => $this->input->post('tilawah')
+            );
+        $this->db->insert('mutabaah', $data);
+        $this->load->view('home/mutabaah', $this->home_model->alert("Mutabaah anda berhasil disampaikan :)"));
+    }
+
+    function live_mentoring() {
+        $data['mentoring'] = $this->home_model->getLiveMentoring( date('Y-n-j'));
+        $this->load->view('header');
+        $this->load->view('navbar');
+        $this->load->view('live_mentoring', $data);
+        $this->load->view('footer');
+
+    }
+
+    function tambah_jadwal($id) {
+        $data['mentor'] = $this->home_model->getDataMentor();
+        $this->load->view('header');
+        $this->load->view('navbar');
+        $this->load->view('tambah_jadwal', $data);
+        $this->load->view('footer');
+    }
+
+    function tambah_jadwal_action($id) {
+        $data = array(
+            'id_mentee' => $id,
+            'id_mentor' => $this->input->post('mentor'),
+            'waktu' => $this->input->post('waktu')
+        );  
+        $this->db->insert('permintaan_jadwal', $data);
+
+        $this->home_model->alert("Post Berhasil dilakukan");
+        $this->load->view('header');
+        $this->load->view('navbar');
+        $this->load->view('tambah_jadwal');
+        $this->load->view('footer');
     }
 
 }
