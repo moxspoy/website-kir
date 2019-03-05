@@ -18,7 +18,7 @@
                 <!--/.First column-->
                 <!--First column-->
                 <div class="col-md-2">
-                    <h5 class="title">Mentoring.com</h5>
+                    <h5 class="title">Aplikasi KIR KPM UNJ</h5>
                     <ul>
                         <li><a href="<?php  echo site_url('footer/tentang') ?>"><i class="fa fa-child" style="margin-right: 8px"></i>Tentang Kami</a></li>
                         <li><a href="<?php  echo site_url('footer/karir') ?>"><i class="fa fa-external-link-square" style="margin-right: 8px"></i>Karir</a></li>
@@ -56,7 +56,7 @@
             <!--Copyright-->
         <div class="footer-copyright">
             <div class="container-fluid" style="margin-top: 10px ; margin-bottom: 10px">
-               <p style="font-size: 15px">Copyrights Mentoring.com. 2017. All Right Reserved<p>
+               <p style="font-size: 15px">Copyrights KPM UNJ 2018. All Right Reserved<p>
                 <p id="demo"></p>
             </div>
         </div>

@@ -5,7 +5,7 @@
     <div style="height: 60px">
     </div>
     <center>
-    <h1 style="margin-top: 15px; margin-bottom: 15px">DAFTAR IKLAN ANDA</h1>
+    <h1 style="margin-top: 15px; margin-bottom: 15px">Pelatih KIR Yang Tersedia</h1>
     </center>
         <!--Post Card-->
         <!-- Show just premium post with slider -->
@@ -15,51 +15,27 @@
                 echo "<div class='row'>"; 
             //}
 
-			foreach ($daftarIklan as $row){
-                $id_post = $row->id;
-                //$id = $row->$id;
-                if($row->status == 2){
+			foreach ($pelatih as $row){
+                
 					echo   "<div class='col-md-4'> 
 							   <div class='single-blog-item'>
-                                        <a href='".site_url("home/detail_content/$row->id")."'>
+                                        <a href='".site_url("home/explore")."'>
 										<div class='blog-thumnail'>
 											<img class='img-fluid' style='max-height:200px;size:cover/center' src='".$row->foto."' alt='Card image cap'>
 										</div>
 										<div class='blog-content'>
-											<h4 class='card-title' style='margin-left:10px;margin-top:5px'>".$row->namabrg."</h4>
-											<p class='card-text' style='margin-left:10px'>Lokasi: ".$row->lokasi."</p>
-                                            <p class='card-text' style='margin-left:10px'>Harga per jam: ".$row->harga."</p>
-										</div> </a>";
-                                        
-										
-										if($row->type == 1){
-											echo "<a href=''><span class='blog-date' style='margin-top:40px;'>Premium</span></a>";
-										}
-										
-										if(isset($_SESSION['username']) && $row->status == 2){
-											echo "<button data-toggle=modal data-target=#chat class='btn btn-primary'><i class='fa fa-phone' aria-hidden='true'></i></button>";
-										}
-
-                                        if(isset($_SESSION['id']) && $row->pengepost == $_SESSION['id'] && $row->status == 2 && $row->isPremiumRequest==0 && $row->type==2){
-                                            echo "<button data-toggle=modal href='javascript:void(0);' onclick='getId(".$row->id.");' data-target=#makePostPremiumModal class='btn btn-primary'><i class='fa fa-star' aria-hidden='true'></i></button>";
-                                            //echo anchor('Home/konfirmasi/'.$row->id,'<button class="btn btn-primary">Konfirmasi</button>');
-                                        }
-										if(isset($_SESSION['username']) && $row->status == 2){
-											echo "<a href='http://localhost/tempat/home/editIklan/".$id_post."'' ><button  class='btn btn-danger'><i class='fa fa-edit' aria-hidden='true'></i>
-                                            </button></a>";
-                                            
-										}
-
-
-                                        $post_id++;
+											<h4 class='card-title' style='margin-left:10px;margin-top:5px'>".$row->nama."</h4>
+											<p class='card-text' style='margin-left:10px'>Alamat: ".$row->alamat."</p>
+                                            <p class='card-text' style='margin-left:10px'>Jadwal: ".$row->jam."</p>
+                                            <p class='card-text' style='margin-left:10px'>Riwayat mengajar: ".$row->biasa."</p>
+                                            <p class='card-text' style='margin-left:10px'>Tarif yang ditawarkan: Rp ".$row->harga."</p>
+                                        </div>
+                                        <a href='".site_url("home/order/$row->id")."'><button class='btn btn-primary'>Pilih</button></a>'
+                                        </a>";
 								echo"</div>
 							</div>";
                     }
-                            
-			}
-
-			//if($post_id % 3 == 1 || $post_id == 1){
-					echo "</div>";
+					echo "</div><br><br>";
 			//}
         ?>
 		</div>
@@ -170,4 +146,3 @@
     
     
 
-    

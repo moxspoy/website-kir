@@ -118,56 +118,60 @@
     </div>
 
     <!--Main Container-->
-    <div class="container" style="margin-top: 100px;">
+    <div class="container" style="margin-bottom: 60px; margin-top: 60px; margin-top:30px">
+        <h1><strong>LOGIN</strong></h1>
+        <div class="panel green" style="align: center">
+            <main class="freeBird">
+                <div class="container" >
+                    <div class="row" style="align: center">
+                        <div class="col-md-7 m-x-auto pull-xs-none">
+                            <div class="jumbotron">
+                                <h2 class="h2-responsive"><strong>Login Sebagai Admin</strong></h2>
+                                
+                                <!-- <hr class="m-y-2"> -->
 
-        <!-- Brand Tempatqu -->
-        <div class="text-center">
-            <h1>DOWNLOAD MATERI MENTORING</h1>
+                                <!--Naked Form-->
+                                <div class="card-block">
+
+                                    <!--Body-->
+                                    <form action="<?php echo site_url("admin/dashboard") ?>" method="post" enctype="multipart/form-data">
+
+                                        <h5 class="h5-responsive">username</h5>
+                                        <!-- Basic textbox -->
+                                        <div class="md-form">
+                                            <i class="fa fa-list prefix"></i>
+                                            <input type="text" name="nrm"  class="form-control">
+                                            <label for="form1" class="">NRM anda</label>
+                                        </div>
+                                        <!-- /.Basic textbox -->
+
+                                        
+                                        <h5 class="h5-responsive">Password</h5>
+                                        <div class="md-form">
+                                            <i class="fa fa-key prefix"></i>
+                                            <input type="password" name="password" id="form2" class="form-control">
+                                            <label for="form2"></label>
+                                        </div>
+
+                                        
+
+                                        <div class="text-xs-left">
+                                            <button class="btn btn-primary">Login</button>
+                                        </div>
+                                    </form>
+
+                                </div>
+                                <!--Naked Form-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
         </div>
-        <!-- End of Brand -->
-
-
-        <!-- Premium Post Request -->
-        <br/>
-        <br/>
-        <br/>
-         
-            <!--Table-->
-            <div class="table-wrapper-2" style="margin-left: 20%">
-            <table class="table table-responsive">
-
-                <!--Table head-->
-                <thead class="mdb-color darken-3">
-                    <tr class="text-white">
-                            <!-- <th>Id</th> -->
-                            <th>Pertemuan</th>
-                            <th>Judul Materi</th>
-                            <th>File</th>
-                            <th>Updated</th>
-                    </tr>
-                </thead>
-                <!--Table head-->
-
-                <!--Table body-->
-                <tbody>
-                    
-                        <?php
-                        foreach ($materi as $row){
-                echo "<tr>
-                            <td>".$row->id."</td>
-                            <td>".$row->judul."</td>
-                            <td><a href=".$row->file."><i class='fa fa-download' aria-hidden='true'></i></td>
-                            <td>".$row->updated."</td></tr>" ;
-                        }
-                            ?>  
-                </tbody>
-                <!--Table body-->
-            </table>
-            <!--Table-->
-        </div>                
     </div>
-    <hr>
-        
+
+         <!--Action-->
 
     <script type="text/javascript">
         var url="<?php echo base_url();?>";
@@ -199,3 +203,4 @@
     
     
 
+    

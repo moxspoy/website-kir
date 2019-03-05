@@ -126,102 +126,38 @@
                     <div class="row" style="align: center">
                         <div class="col-md-7 m-x-auto pull-xs-none">
                             <div class="jumbotron">
-                                <h2 class="h2-responsive"><strong>Daftar Sebagai Mentor</strong></h2>
-                                <p>Pastikan anda sudah memiliki syarat-syarat menjadi mentor. Anda akan diberikan email khusus dari
-                                    Lembaga Dakwah Kampus jika semua anda dinyatakan layak sebagai mentor. Mengenai persyaratan bisa dilihat <a href="http://www.salimunj.com">disini</a></p>
+                                <h2 class="h2-responsive"><strong>Lengkapi Data Anda</strong></h2>
+                                <p>Anda harus melengkapi pendaftaran agar memudahkan P2EK</p>
                                 <!-- <hr class="m-y-2"> -->
 
                                 <!--Naked Form-->
                                 <div class="card-block">
 
                                     <!--Body-->
-                                    <form action="<?php echo site_url("home/post") ?>" method="post" enctype="multipart/form-data">
+                                    <form action="<?php echo site_url("home/order_action/").$id ?>" method="post" enctype="multipart/form-data">
 
-                                        <h5 class="h5-responsive">Nama</h5>
+                                        <h5 class="h5-responsive">Nama Sekolah</h5>
                                         <!-- Basic textbox -->
                                         <div class="md-form">
                                             <i class="fa fa-user prefix"></i>
-                                            <input type="text" name="nama" class="form-control">
-                                            <label for="form1" >Nama anda</label>
+                                            <input type="text" name="sekolah" class="form-control">
                                         </div>
                                         <!-- /.Basic textbox -->
 
-                                        <h5 class="h5-responsive">NRM</h5>
+                                        <h5 class="h5-responsive">Alamat</h5>
                                         <!-- Basic textbox -->
                                         <div class="md-form">
                                             <i class="fa fa-list prefix"></i>
-                                            <input type="text" name="nrm"  class="form-control">
-                                            <label for="form1" class="">NRM anda</label>
+                                            <input type="text" name="alamat"  class="form-control">
                                         </div>
                                         <!-- /.Basic textbox -->
 
-                                        <h5 class="h5-responsive">Program Studi</h5>
+                                        <h5 class="h5-responsive">No Hp</h5>
                                         <!-- Basic textbox -->
                                         <div class="md-form">
                                             <i class="fa fa-tree prefix"></i>
-                                            <input type="text" name="prodi"  class="form-control">
-                                            <label for="form1" class="">Prodi</label>
+                                            <input type="text" name="hp"  class="form-control">
                                         </div>
-
-                                        <h5 class="h5-responsive">Fakultas</h5>
-                                        <!-- Basic textbox -->
-                                        <div class="md-form">
-                                            <i class="fa fa-tint prefix"></i>
-                                            <input type="text" name="fakultas" class="form-control">
-                                            <label for="form1" class="">Fakultas</label>
-                                        </div>
-                                        <!-- /.Basic textbox -->
-
-                                        <!-- /.Basic textbox -->
-                                        <h5 class="h5-responsive">Jenis Kelamin</h5>
-                                        <!-- Basic textbox -->
-                                        <div class="md-form">
-                                            <!-- <i class="fa fa-venus prefix"></i> -->
-                                            <select class="form-control" id="jenis_kelamin" name="jenis_kelamin">
-                                                    <option value="">Saya...</option>
-                                                    <option value="1">Laki-Laki</option>
-                                                    <option value="2">Perempuan</option>
-                                            </select>
-                                        </div>
-                                        <!-- /.Basic textbox -->
-
-                                        <h5 class="h5-responsive">Kota Asal</h5>
-                                        <div class="md-form">
-                                            <i class="fa fa-map prefix"></i>
-                                            <input type="text" name="kota_asal" id="form2" class="form-control">
-                                            <label for="form2">Kota Lahir</label>
-                                        </div>
-
-                                        <h5 class="h5-responsive">Password</h5>
-                                        <div class="md-form">
-                                            <i class="fa fa-key prefix"></i>
-                                            <input type="password" name="password" id="form2" class="form-control">
-                                            <label for="form2"></label>
-                                        </div>
-
-                                        <!--Email validation-->
-                                        <h5 class="h5-responsive">E-mail</h5>
-                                        <div class="md-form">
-                                            <i class="fa fa-envelope prefix"></i>
-                                            <input type="email" id="form9" name="email" class="form-control validate">
-                                            <label for="form9" data-error="wrong" data-success="right">Email</label>
-                                        </div>
-
-                                        <h5 class="h5-responsive">Nomor HP</h5>
-                                        <div class="md-form">
-                                            <i class="fa fa-phone prefix"></i>
-                                            <input type="text" id="form9" name="no_hp" class="form-control validate">
-                                            <label for="form9" data-error="wrong" data-success="right">No HP/Whatsapp</label>
-                                        </div>
-
-                                        <h5 class="h5-responsive">Foto</h5>
-                                        <div class="md-form">
-                                             <i class="fa fa-camera prefix"></i>
-                                        <strong>Pilih foto:</strong> 
-                                        <input type="file" name="dokumen" id="dokumen">
-                                        </div>
-                                       
-                                        
 
                                         <div class="text-xs-left">
                                             <button class="btn btn-primary">Submit</button>

@@ -5,7 +5,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="navbar-brand" href="<?php echo base_url() ?>" style="color:#ffffff">
-                <b>MENTORING</b>
+                <b>KIR</b>
             </a>
            
             <div class="collapse navbar-collapse mox-nav" id="navbarNav1" style="height: 50px">
@@ -44,9 +44,6 @@
                                     </li>";
                         }
                       ?>
-                       <li class="nav-item" style="margin: auto 15px">
-                        <a href="<?php echo base_url('berita/') ?>" class="nav-link" style="color:#ffffff"><i class='fa fa-book' aria-hidden='true'></i><span class="sr-only"></span>Artikel Islam</a>
-                        </li>
                          <li class="nav-item" style="margin: auto 15px; color:#ffffff">
                         <a href="<?php echo base_url('footer/tentang') ?>" class="nav-link" style="color:#ffffff"><i class='fa fa-child' aria-hidden='true' ></i><span class="sr-only"></span>Tentang</a>
                         </li>
@@ -63,10 +60,10 @@
                                      </li>";
                         }else{
                             echo "<li class='nav-item' style='position:absolute;right:0' >
-                                  <a class=nav-link data-toggle=modal data-target=#loginregister>
+                                  <a href='".base_url("admin")."'>
                                     <!-- Accent-colored raised button with ripple -->
                                     <button type='button' class='btn btn-danger btn-rounded waves-effect waves-light'>
-                                      Login/Register
+                                      Login Admin
                                     </button>
                                     <span class=sr-only></span></a>
                                   </li>";        

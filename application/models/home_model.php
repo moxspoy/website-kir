@@ -5,8 +5,14 @@ class Home_model extends CI_Model{
     var $materi = 'mentee';
 
     function post($data){
-        $this->db->insert('mentor', $data);
+        $this->db->insert('pelatih', $data);
         return TRUE;
+    }
+
+    function get_pelatih() {
+        $this->db->from('pelatih');
+        $query = $this->db->get();
+        return $query->result();
     }
 
     function getDataMentoring() {

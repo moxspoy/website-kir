@@ -12,14 +12,47 @@ class Home extends CI_Controller{
  
     function index()
     {
-        $data['judul'] = 'MentorRing.com | Lesatkan Ajaran Islam Lewat Mentoring';
-        $data['post'] = $this->home_model->get_post();
+        $data['judul'] = 'Aplikasi KIR | KPM UNJ 2018';
+        //$data['post'] = $this->home_model->get_post();
         $this->load->view('header');
         $this->load->view('navbar');
-        $this->load->view('home_view', $data);
+        $this->load->view('home_view');
         $this->load->view('footer');
     }
- 
+
+    function explore() {
+        $data['judul'] = 'Aplikasi KIR | KPM UNJ 2018';
+        $data['pelatih'] = $this->home_model->get_pelatih();
+        $this->load->view('header');
+        $this->load->view('navbar');
+        $this->load->view('explore', $data);
+        $this->load->view('footer');
+    }
+
+    function order($id) {
+        $data = array ('id' => $id);
+        $this->load->view('header');
+        $this->load->view('navbar');
+        $this->load->view('order', $data);
+        $this->load->view('footer');
+    }
+
+    function order_action($id) {
+        $data=array(
+            'id_pelatih'      => $id,
+            'nama_sekolah'          => $this->input->post('sekolah'),
+            'alamat'        => $this->input->post('alamat'),
+            'hp'          => $this->input->post('hp')
+            );
+        $this->db->insert('order', $data);
+        $_SESSION['success_order'] = true;
+        redirect('home');
+    }
+
+    function status() {
+
+    }
+
     function register()
     {   
         $this->form_validation->set_rules('username','Username','trim|required|min_length[3]|is_unique[users.username]');

@@ -118,53 +118,80 @@
     </div>
 
     <!--Main Container-->
-    <div class="container" style="margin-top: 100px;">
-        
-        <!--Section: Blog v.1-->
-        <section class="section pb-3 text-center text-lg-left">
+    <div class="container" style="margin-bottom: 60px; margin-top: 60px; margin-top:30px">
+        <h1><strong>LOGIN</strong></h1>
+        <div class="panel green" style="align: center">
+            <main class="freeBird">
+                <div class="container" >
+                    <div class="row" style="align: center">
+                        <div class="col-md-7 m-x-auto pull-xs-none">
+                            <div class="jumbotron">
+                                <h2 class="h2-responsive"><strong>Tambah Fasil</strong></h2>
+                                
+                                <!-- <hr class="m-y-2"> -->
 
-            <!--Section heading-->
-            <h1 class="section-heading h1 pt-4">Artikel</h1>
-            <!--Section description-->
-            <p class="section-description">Untuk memperkuat pemahaman kita dalam mentoring, maka disediakan artikel-artikel keislaman.</p>
+                                <!--Naked Form-->
+                                <div class="card-block">
 
-            <!--Grid row-->
-            <div class="row">
-                <?php
-                    foreach ($artikel as $row) {
-                        echo "<!--Grid column-->
-                        <div class='col-lg-5 ml-auto col-xl-4 pb-3'>
-                            <!--Featured image-->
-                            <div class='view overlay hm-white-slight z-depth-1-half'>
-                                <img src=".$row->foto." class='img-fluid'>
-                                <a>
-                                    <div class='mask'></div>
-                                </a>
+                                    <!--Body-->
+                                    <form action="<?php echo site_url("admin/insert") ?>" method="post" enctype="multipart/form-data">
+
+                                        <h5 class="h5-responsive"></h5>
+                                        <!-- Basic textbox -->
+                                        <div class="md-form">
+                                            <i class="fa fa-list prefix"></i>
+                                            <input type="text" name="username" class="form-control">
+                                            <label for="form1" class="">username</label>
+                                        </div>
+                                        <!-- /.Basic textbox -->
+
+                                        
+                                
+                                        <h5 class="h5-responsive">Nama</h5>
+                                        <div class="md-form">
+                                            <i class="fa fa-key prefix"></i>
+                                            <input type="text" name="nama" id="form2" class="form-control">
+                                            <label for="form2"></label>
+                                        </div>
+
+                                        <h5 class="h5-responsive">Alamat</h5>
+                                        <div class="md-form">
+                                            <i class="fa fa-key prefix"></i>
+                                            <input type="text" name="alamat" id="form2" class="form-control">
+                                            <label for="form2"></label>
+                                        </div>
+
+                                        <h5 class="h5-responsive">Jenjang</h5>
+                                        <div class="md-form">
+                                            <i class="fa fa-key prefix"></i>
+                                            <input type="text" name="biasa" id="form2" class="form-control">
+                                            <label for="form2"></label>
+                                        </div>
+
+                                        <h5 class="h5-responsive">URL Foto</h5>
+                                        <div class="md-form">
+                                            <i class="fa fa-key prefix"></i>
+                                            <input type="text" name="foto" id="form2" class="form-control">
+                                            <label for="form2"></label>
+                                        </div>
+                                        
+
+                                        <div class="text-xs-left">
+                                            <button class="btn btn-primary">Tambah</button>
+                                        </div>
+                                    </form>
+
+                                </div>
+                                <!--Naked Form-->
+
                             </div>
                         </div>
-                        <!--Grid column-->
-
-                        <!--Grid column-->
-                        <div class='col-lg-7 mr-auto col-xl-6'>
-                            <!--Excerpt-->
-                            <a href='' class='green-text'><h6 class='font-bold pb-1'><i class='fa fa-cutlery'></i> Artikel</h6></a>
-                            <h4 class='mb-4'><strong>".$row->judul."</strong></h4>
-                            <p>".$row->isi."</p>
-                            <p>by <a><strong></strong></a>".$row->tanggal."</p>
-                            <a class='btn btn-success mb-3'>Read more</a>
-                        </div>
-                        <!--Grid column-->
-
                     </div>
-                    <!--Grid row-->
-
-                    <hr class='hr-width mb-5 mt-5 pb-3'>";
-                    }
-                ?>
-        </section>
-        <!--Section: Blog v.1-->
-                    
+                </div>
+            </main>
+        </div>
     </div>
+
          <!--Action-->
 
     <script type="text/javascript">

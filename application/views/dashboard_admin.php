@@ -10,13 +10,12 @@
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs tabs-2 light-blue" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#loginpanel" role="tab"><i class="fa fa-user mr-1"></i> Login</a>
+                            <a class="nav-link active" data-toggle="tab" href="#loginpanel" role="tab"><i class="fa fa-user mr-1"></i> Masuk</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#registerpanel" role="tab"><i class="fa fa-user-plus mr-1"></i> Register</a>
+                            <a class="nav-link" data-toggle="tab" href="#registerpanel" role="tab"><i class="fa fa-user-plus mr-1"></i> Mendaftar</a>
                         </li>
                     </ul>
-
                     <!-- Tab panels -->
                 
                     <div class="tab-content">
@@ -42,7 +41,6 @@
                                         <button class="btn btn-info" name="submit" type="submit" value="login">Log in <i class="fa fa-sign-in ml-1"></i></button>
                                     </div>
                                 </div>
-                                
                             </form>
                           
                             <!--Footer-->
@@ -58,8 +56,6 @@
 
                         <!--Panel 8-->
                         <div class="tab-pane fade" id="registerpanel" role="tabpanel">
-
-
                             <!--Body-->
                             <form method="post" action="<?php echo site_url("home/register") ?>">
                                 <div class="modal-body">
@@ -102,7 +98,6 @@
                                     <div class="text-center form-sm mt-2">
                                         <div id="RecaptchaField2"></div></div> <span><button class="btn btn-info" name="button" type="submit" value="register">Sign up <i class="fa fa-sign-in ml-1"></i></button> </span>
                                     </div>
-
                                 </div>
                             </form>
                             
@@ -116,98 +111,93 @@
                         </div>
                         <!--/.Panel 8-->
                     </div>
-
                 </div>
             </div>
             <!--/.Content-->
         </div>
     </div>
-<!--/Modal: Login / Register Form-->
 
-<!-- Main Container -->
-<div class="container">
-<section class="section pb-5">
 
-    <!--Section heading-->
-    <center>
-    <h2 class="section-heading h1 pt-4 title">TAMBAH JADWAL</h2>
-    </center>
-    <!--Section description-->
-    <div class="md-form">
-    <input placeholder="Selected date" type="text" id="date-picker-example" class="form-control datepicker">
-    <label for="date-picker-example">Try me...</label>
-    </div>
-    
+    <!--Main Container-->
+    <div class="container" style="margin-top: 100px;">
+        <!-- End of Brand -->
+        <div class="row">
+            <div class="col">
+                <!--Table-->
+                <div class="table-wrapper-2" style="margin-left: 20%">
+                <table class="table table-responsive">
 
-    <div class="row">
+                    <!--Table head-->
+                    <thead class="mdb-color darken-3">
+                        <tr class="text-white">
+                                <!-- <th>Id</th> -->
+                                <th>No</th>
+                                <th>Nama Fasil</th>
+                        </tr>
+                    </thead>
+                    <!--Table head-->
 
-        <!--Grid column-->
-        <div class="col mb-4">
-
-            <!--Form with header-->
-            <div class="card">
-
-                <div class="card-body" style="margin-left: 20px">
-                    <!--Header-->
-
-                    <br>
-
-                    <form method="post" action="<?php $id = $_SESSION['id']; echo site_url("home/tambah_jadwal_action/$id")?>">
-                    	<!--Body-->
-	                    
-
-	                    <div class="md-form">
-                            <!-- <i class="fa fa-venus prefix"></i> -->
-                            <select class="form-control" id="mentor" name="mentor">
-                                                    <option value="">Pilih Mentor..</option>
-                                                    <?php 
-                                                     foreach ($mentor as $row) {
-
-                                                         echo "<option style='color:#000000' value='".$row->id."'>".$row->name."</option>";
-                                                     }
-                                                    ?>
-                                                    
-                            </select>
-                        </div>
-
-	                    <div class="md-form">
-                            <label for="form-text">Pilih Tanggal</label>
-                            <br>
-                            <br>
-	                        <i class="fa fa-pencil prefix grey-text"></i>
-	                        <input type="datetime-local"  name="waktu"></input>
-	                        
-	                    </div>
-                        <!-- <div class="md-form">
-                            <input placeholder="Pilih tanggal" type="text" id="date-picker-example" class="form-control datepicker">
-                            <label for="date-picker-example">tanggal...</label>
-                        </div> -->
-
-	                    <div class="text-center">
-	                        <button class="btn btn-pink">Ajukan</button>
-	                    </div>
-                    </form>
-
-                </div>
-
+                    <!--Table body-->
+                    <tbody>
+                        
+                            <?php
+                            $nomor = 1;
+                            foreach ($pelatih as $row){
+                    echo "<tr>
+                                <td>".$nomor."</td>
+                                <td>".$row->nama."</td>
+                                </tr>" ;
+                                $nomor = $nomor + 1;
+                            }
+                            
+                                ?>  
+                    </tbody>
+                    <!--Table body-->
+                </table>
+                <!--Table-->
             </div>
-            <!--Form with header-->
-
-        </div>
-        <!--Grid column-->
-
+            <div class="col">
+                <h2>TAMBAH FASIL</h2>
+                <a href="<?php echo base_url('admin/tambah') ?>">
+                                    <!-- Accent-colored raised button with ripple -->
+                                    <button type='button' class='btn btn-default btn-rounded waves-effect waves-light'>
+                                      Tambah
+                                    </button>
+                                    <span class=sr-only></span></a>
+            </div>
+            </div>
+        </div>               
     </div>
+    <hr>
+        
 
-</section>
-<!--Section: Contact v.1-->
-</div>
-    <!-- Buat Captcha -->
-<script type="text/javascript">
+    <script type="text/javascript">
+        var url="<?php echo base_url();?>";
+      
+        function konfirmasi(){
+            window.location.href = url+"Home/konfirmasi/"+localStorage.getItem('post_id');
+        }
+
+        function report(){
+            window.location.href = url+"Home/report/"+localStorage.getItem('post_id');
+        }
+
+        function getId(id){
+           localStorage.setItem('post_id',id);
+        }
+
+        function setIsPremiumRequestedToOne() {
+            window.location.href = url+"Home/setIsPremiumRequestedToOne/"+localStorage.getItem('post_id');
+        }
+        
         var CaptchaCallback = function() {
             grecaptcha.render('RecaptchaField1', {'sitekey' : '6LeegzQUAAAAAHHpsMGJBT4c7SopKvJ4GxNpoAPt'});
             grecaptcha.render('RecaptchaField2', {'sitekey' : '6LeegzQUAAAAAHHpsMGJBT4c7SopKvJ4GxNpoAPt'});
         };
-        // Data Picker Initialization
-        $('.datepicker').pickadate();
 
-</script>  
+    </script>                                                     
+                                                                                               
+
+    
+    
+
